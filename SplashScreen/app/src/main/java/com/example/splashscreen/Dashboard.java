@@ -35,9 +35,7 @@ public class Dashboard extends AppCompatActivity {
                     displayedFrag=new HomeFrag();
                     break;
 
-                case R.id.search_id:
-                    displayedFrag=new SearchFrag();
-                    break;
+
 
                 case R.id.message_id:
                     displayedFrag=new MessageFrag();

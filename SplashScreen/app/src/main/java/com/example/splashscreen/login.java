@@ -27,7 +27,7 @@ public class login extends AppCompatActivity {
 
     private EditText login_email, login_pass;
     private FirebaseAuth mAuth;
-    Button callSignUp;
+    Button callSignUp,callMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +41,20 @@ public class login extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         callSignUp=findViewById(R.id.signup_screen);
+        callMusic=findViewById(R.id.direct_to_music);
 
         callSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(login.this,registration.class));
                 finish();
+            }
+        });
+
+        callMusic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(login.this,LocalMusicMain.class));
             }
         });
 
