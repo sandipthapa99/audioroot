@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#1A1B1C</color> //top bar
     <color name="colorPrimaryDark">#151515 </color> //status bar
-    <color name="colorAccent">#3700B3</color> //input field
+    <color name="colorAccent">#3498db</color> //input field
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 </resources>

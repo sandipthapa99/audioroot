@@ -1,6 +1,7 @@
 package com.example.splashscreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.media.MediaMetadata;
 import android.media.MediaMetadataRetriever;
@@ -36,7 +37,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.file_name.setText(myFiles.get(position).getTitle());
         byte[] image= getAlbumArt(myFiles.get(position).getPath());
 
@@ -46,6 +47,15 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
         else{
             Glide.with(myContext). load(R.drawable.album_art).into(holder.album_art);
         }
+        //opening main player on clicking song in recycler view
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(myContext, PlayerActivity.class);
+                intent.putExtra("position",position);
+                myContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
