@@ -102,4 +102,11 @@
         android:text="Already have an account? Sign In "
         android:transitionName="login_signup_trans"
         android:textColor="#000"/>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"/>
 </LinearLayout>

@@ -71,6 +71,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:id="@+id/forgot_password"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -115,4 +116,11 @@
         android:textColor="#000000"
         android:textSize="14sp"
         android:transitionName="login_signup_trans" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"/>
 </LinearLayout>

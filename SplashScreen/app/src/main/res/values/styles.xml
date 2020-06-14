@@ -16,5 +16,23 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="TextAppearance.AppCompat.widget.ActionBar.Title" parent="@android:style/TextAppearance">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    
+    <style name="ToolbarOptionMenu" parent="AppTheme">
+        <item name="android:textColorSecondary">#FFFFFF</item>
+    </style>
+
+    <style name="AppThemeCustom" parent="Theme.AppCompat.Light.DarkActionBar">
+        ...
+        <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+    </style>
+
+    <style name="MyOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">#62ff00</item>
+    </style>
 
 </resources>

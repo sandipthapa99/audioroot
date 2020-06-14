@@ -19,6 +19,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -27,6 +29,8 @@ import java.util.ArrayList;
 
 public class LocalMusicMain extends AppCompatActivity {
 
+    ImageView imageView;
+
     public static final int REQUEST_CODE=1;
     static ArrayList<MusicFiles> musicFiles;
 
@@ -34,6 +38,14 @@ public class LocalMusicMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_music_main);
+
+        imageView=findViewById(R.id.back_button);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         permission();
     }

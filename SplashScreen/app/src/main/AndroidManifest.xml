@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlayerActivity"></activity>
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".PlayerActivity" />
         <activity android:name=".LocalMusicMain" />
         <activity
             android:name=".login"
@@ -20,7 +22,6 @@
         <activity
             android:name=".registration"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Dashboard" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

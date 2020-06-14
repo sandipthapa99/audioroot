@@ -7,6 +7,23 @@
     android:orientation="vertical"
     tools:context=".LocalMusicMain">
 
+    <androidx.appcompat.widget.Toolbar
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/back_button"
+            android:src="@drawable/ic_arrow_back_white"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+    </androidx.appcompat.widget.Toolbar>
+
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
