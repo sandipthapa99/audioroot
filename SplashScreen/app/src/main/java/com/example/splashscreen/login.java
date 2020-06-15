@@ -69,10 +69,10 @@ public class login extends AppCompatActivity {
                 final EditText resetEmail=new EditText(v.getContext());
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
                 passwordResetDialog.setTitle("Reset Password?");
-                passwordResetDialog.setMessage("Enter your registered Eamil.");
+                passwordResetDialog.setMessage("Enter your registered e-mail.");
                 passwordResetDialog.setView(resetEmail);
 
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //extract email and sent reset link here
@@ -91,7 +91,7 @@ public class login extends AppCompatActivity {
                         });
                     }
                 });
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //close the dialog

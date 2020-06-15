@@ -1,10 +1,12 @@
 package com.example.splashscreen;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.palette.graphics.Palette;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -58,7 +60,25 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         artist_name.setText(songsList.get(position).getArtist());
         mediaPlayer.setOnCompletionListener(this);
 
+        shuffleBtn=findViewById(R.id.shuffle);
         back_button=findViewById(R.id.back_button);
+        repeatBtn=findViewById(R.id.repeat);
+
+        shuffleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog();
+
+            }
+        });
+        repeatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog();
+
+            }
+        });
+
 
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,8 +365,6 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         album_art = findViewById(R.id.album_art);
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
-        shuffleBtn = findViewById(R.id.shuffle);
-        repeatBtn = findViewById(R.id.repeat);
         playPauseBtn = findViewById(R.id.play_pause);
         seekbar = findViewById(R.id.seek_bar);
 
@@ -464,5 +482,25 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
             mediaPlayer.start();
             mediaPlayer.setOnCompletionListener(this);
         }
+    }
+
+    public void alertDialog(){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(PlayerActivity.this);
+        alertDialog.setTitle("Oops!");
+        alertDialog.setMessage("This feature will be added soon!");
+
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alertDialog.setNegativeButton("", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //
+            }
+        });
+        alertDialog.create().show();
     }
 }

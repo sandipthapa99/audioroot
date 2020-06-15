@@ -108,6 +108,7 @@ public class UpdateProfile extends AppCompatActivity {
         }
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null && profileImageUrl != null) {
+            progressBar.setVisibility(View.VISIBLE);
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setDisplayName(displayName)
                     .setPhotoUri(Uri.parse(profileImageUrl)).build();
@@ -116,6 +117,7 @@ public class UpdateProfile extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()){
+                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(UpdateProfile.this, "Profile Updated! Login Again to see changes.", Toast.LENGTH_SHORT).show();
                     }
                 }

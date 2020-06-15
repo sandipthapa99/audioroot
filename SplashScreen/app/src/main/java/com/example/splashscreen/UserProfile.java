@@ -1,9 +1,11 @@
 package com.example.splashscreen;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -55,9 +57,27 @@ public class UserProfile extends AppCompatActivity {
         call_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(UserProfile.this, login.class));
+                AlertDialog.Builder logoutDialog = new AlertDialog.Builder(v.getContext());
+                logoutDialog.setTitle("Log Out");
+                logoutDialog.setMessage("Are you Sure?");
+
+                logoutDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
+                        startActivity(new Intent(UserProfile.this, login.class));
+
+                    }
+                });
+                logoutDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //
+                    }
+                });
+                logoutDialog.create().show();
+
             }
         });
 
@@ -140,17 +160,32 @@ public class UserProfile extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.menu_logout:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                startActivity(new Intent(this, login.class));
+                AlertDialog.Builder logoutDialog = new AlertDialog.Builder(UserProfile.this);
+                logoutDialog.setTitle("Log Out");
+                logoutDialog.setMessage("Are you Sure?");
+
+                logoutDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        finish();
+                        startActivity(new Intent(UserProfile.this, login.class));
+
+                    }
+                });
+                logoutDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //
+                    }
+                });
+                logoutDialog.create().show();
                 break;
 
             case  R.id.menu_player:
                 startActivity(new Intent(UserProfile.this, LocalMusicMain.class));
                 finish();
                 break;
-
-
         }
 
         return true;
